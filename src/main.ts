@@ -19,6 +19,8 @@ const headline = required<HTMLElement>("#headline");
 const count = required<HTMLElement>("#count");
 const whisperNode = required<HTMLElement>("#whisper");
 
+const state = loadState();
+
 const effects = new Effects(
   {
     shell,
@@ -34,10 +36,8 @@ const effects = new Effects(
     tearB: required<HTMLElement>("#tearB"),
     floatingText: required<HTMLElement>("#floatingText"),
   },
-  loadState().lastShape,
+  state.lastShape,
 );
-
-const state = loadState();
 const director = new EventDirector();
 const counterStore = createCounterStore();
 let displayedCount = 18_392;
