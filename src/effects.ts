@@ -64,7 +64,7 @@ export class Effects {
     await animate(
       this.dom.button,
       { scale: [1, 0.93, 1], y: [-4, 2, -4] },
-      { duration: duration(0.24), easing: [0.22, 1, 0.36, 1] },
+      { duration: duration(0.24), ease: [0.22, 1, 0.36, 1] },
     ).finished;
   }
 
@@ -74,12 +74,12 @@ export class Effects {
     this.currentShape = next;
     const preset = SHAPES[next]!;
 
+    this.applyShape(preset, true);
     await animate(
       this.dom.button,
       { scaleX: [1, 0.7, 1.08, 1], scaleY: [1, 1.22, 0.93, 1], rotate: [0, preset.rotate * 1.35, preset.rotate] },
-      { duration: duration(0.72), easing: [0.16, 1, 0.3, 1] },
+      { duration: duration(0.72), ease: [0.16, 1, 0.3, 1] },
     ).finished;
-    this.applyShape(preset, true);
   }
 
   async dodge(): Promise<void> {
@@ -88,7 +88,7 @@ export class Effects {
     await animate(
       this.dom.stage,
       { x: [0, x, x * 0.9, 0], y: [0, y, y * 0.9, 0] },
-      { duration: duration(1.65), times: [0, 0.18, 0.74, 1], easing: [0.16, 1, 0.3, 1] },
+      { duration: duration(1.65), times: [0, 0.18, 0.74, 1], ease: [0.16, 1, 0.3, 1] },
     ).finished;
   }
 
@@ -102,7 +102,7 @@ export class Effects {
         y: [0, amp * 0.35, -amp * 0.28, amp * 0.2, -amp * 0.12, 0],
         rotate: [0, -0.8, 0.6, -0.45, 0.25, 0],
       },
-      { duration: duration(strong ? 1.2 : 0.78), easing: "ease-in-out" },
+      { duration: duration(strong ? 1.2 : 0.78), ease: "ease-in-out" },
     ).finished;
   }
 
@@ -112,7 +112,7 @@ export class Effects {
     await animate(
       this.dom.veil,
       { opacity: [0, 1, 1, 0] },
-      { duration: duration(seconds), times: [0, 0.12, 0.78, 1], easing: "ease-in-out" },
+      { duration: duration(seconds), times: [0, 0.12, 0.78, 1], ease: "ease-in-out" },
     ).finished;
   }
 
@@ -120,7 +120,7 @@ export class Effects {
     await animate(
       this.dom.wash,
       { opacity: [0, 0.72, 0.42, 0] },
-      { duration: duration(2.4), times: [0, 0.18, 0.72, 1], easing: "ease-in-out" },
+      { duration: duration(2.4), times: [0, 0.18, 0.72, 1], ease: "ease-in-out" },
     ).finished;
   }
 
@@ -128,23 +128,23 @@ export class Effects {
     await animate(
       this.dom.grain,
       { opacity: [0, 0.58, 0.28, 0.5, 0] },
-      { duration: duration(2.1), easing: "linear" },
+      { duration: duration(2.1), ease: "linear" },
     ).finished;
   }
 
   async curtains(): Promise<void> {
     impactSound(1.8);
     await Promise.all([
-      animate(this.dom.leftCurtain, { x: ["-102%", "0%", "0%", "-102%"] }, { duration: duration(2.7), times: [0, 0.23, 0.69, 1], easing: [0.16, 1, 0.3, 1] }).finished,
-      animate(this.dom.rightCurtain, { x: ["102%", "0%", "0%", "102%"] }, { duration: duration(2.7), times: [0, 0.23, 0.69, 1], easing: [0.16, 1, 0.3, 1] }).finished,
+      animate(this.dom.leftCurtain, { x: ["-102%", "0%", "0%", "-102%"] }, { duration: duration(2.7), times: [0, 0.23, 0.69, 1], ease: [0.16, 1, 0.3, 1] }).finished,
+      animate(this.dom.rightCurtain, { x: ["102%", "0%", "0%", "102%"] }, { duration: duration(2.7), times: [0, 0.23, 0.69, 1], ease: [0.16, 1, 0.3, 1] }).finished,
     ]);
   }
 
   async tear(): Promise<void> {
     impactSound(1.3);
     await Promise.all([
-      animate(this.dom.tearA, { x: ["-110%", "-8%", "-4%", "-110%"], rotate: [-3, -3, -2, -3] }, { duration: duration(2.3), times: [0, 0.2, 0.78, 1], easing: [0.16, 1, 0.3, 1] }).finished,
-      animate(this.dom.tearB, { x: ["110%", "8%", "4%", "110%"], rotate: [3, 3, 2, 3] }, { duration: duration(2.3), times: [0, 0.2, 0.78, 1], easing: [0.16, 1, 0.3, 1] }).finished,
+      animate(this.dom.tearA, { x: ["-110%", "-8%", "-4%", "-110%"], rotate: [-3, -3, -2, -3] }, { duration: duration(2.3), times: [0, 0.2, 0.78, 1], ease: [0.16, 1, 0.3, 1] }).finished,
+      animate(this.dom.tearB, { x: ["110%", "8%", "4%", "110%"], rotate: [3, 3, 2, 3] }, { duration: duration(2.3), times: [0, 0.2, 0.78, 1], ease: [0.16, 1, 0.3, 1] }).finished,
     ]);
   }
 
@@ -153,7 +153,7 @@ export class Effects {
     await animate(
       this.dom.shell,
       { scaleX: [1, 0.76, 1.06, 1], scaleY: [1, 1.14, 0.96, 1], borderRadius: ["0px", "44px", "16px", "0px"] },
-      { duration: duration(1.85), easing: [0.16, 1, 0.3, 1] },
+      { duration: duration(1.85), ease: [0.16, 1, 0.3, 1] },
     ).finished;
   }
 
@@ -163,7 +163,7 @@ export class Effects {
     await animate(
       this.dom.button,
       { y: [-4, amount, amount - 48, amount, -4], rotate: [0, 8, -5, 2, 0], scaleY: [1, 0.82, 1.08, 0.92, 1] },
-      { duration: duration(2.15), times: [0, 0.42, 0.58, 0.72, 1], easing: [0.18, 0.9, 0.2, 1] },
+      { duration: duration(2.15), times: [0, 0.42, 0.58, 0.72, 1], ease: [0.18, 0.9, 0.2, 1] },
     ).finished;
   }
 
@@ -171,7 +171,7 @@ export class Effects {
     await animate(
       this.dom.shell,
       { rotateY: [0, 18, -12, 4, 0], rotateX: [0, -8, 6, -2, 0], scale: [1, 0.95, 1.02, 1] },
-      { duration: duration(2.2), easing: [0.16, 1, 0.3, 1] },
+      { duration: duration(2.2), ease: [0.16, 1, 0.3, 1] },
     ).finished;
   }
 
@@ -179,7 +179,7 @@ export class Effects {
     await animate(
       this.dom.button,
       { opacity: [1, 0, 0, 1], scale: [1, 0.72, 0.72, 1] },
-      { duration: duration(2), times: [0, 0.18, 0.72, 1], easing: "ease-in-out" },
+      { duration: duration(2), times: [0, 0.18, 0.72, 1], ease: "ease-in-out" },
     ).finished;
   }
 
@@ -187,7 +187,7 @@ export class Effects {
     await animate(
       document.documentElement,
       { filter: ["invert(0) hue-rotate(0deg)", "invert(1) hue-rotate(180deg)", "invert(1) hue-rotate(180deg)", "invert(0) hue-rotate(0deg)"] },
-      { duration: duration(2.35), times: [0, 0.18, 0.76, 1], easing: "ease-in-out" },
+      { duration: duration(2.35), times: [0, 0.18, 0.76, 1], ease: "ease-in-out" },
     ).finished;
   }
 
@@ -206,7 +206,7 @@ export class Effects {
     await animate(
       nodes,
       { y: [0, innerHeight * 1.22], opacity: [0, 0.8, 0.72, 0], rotate: [0, 18] },
-      { delay: stagger(0.08), duration: duration(2.9), easing: [0.25, 0.72, 0.35, 1] },
+      { delay: stagger(0.08), duration: duration(2.9), ease: [0.25, 0.72, 0.35, 1] },
     ).finished;
     nodes.forEach((node) => node.remove());
   }
