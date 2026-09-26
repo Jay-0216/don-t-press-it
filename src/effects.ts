@@ -102,7 +102,7 @@ export class Effects {
         y: [0, amp * 0.35, -amp * 0.28, amp * 0.2, -amp * 0.12, 0],
         rotate: [0, -0.8, 0.6, -0.45, 0.25, 0],
       },
-      { duration: duration(strong ? 1.2 : 0.78), ease: "ease-in-out" },
+      { duration: duration(strong ? 1.2 : 0.78), ease: "easeInOut" },
     ).finished;
   }
 
@@ -112,7 +112,7 @@ export class Effects {
     await animate(
       this.dom.veil,
       { opacity: [0, 1, 1, 0] },
-      { duration: duration(seconds), times: [0, 0.12, 0.78, 1], ease: "ease-in-out" },
+      { duration: duration(seconds), times: [0, 0.12, 0.78, 1], ease: "easeInOut" },
     ).finished;
   }
 
@@ -120,7 +120,7 @@ export class Effects {
     await animate(
       this.dom.wash,
       { opacity: [0, 0.72, 0.42, 0] },
-      { duration: duration(2.4), times: [0, 0.18, 0.72, 1], ease: "ease-in-out" },
+      { duration: duration(2.4), times: [0, 0.18, 0.72, 1], ease: "easeInOut" },
     ).finished;
   }
 
@@ -179,7 +179,7 @@ export class Effects {
     await animate(
       this.dom.button,
       { opacity: [1, 0, 0, 1], scale: [1, 0.72, 0.72, 1] },
-      { duration: duration(2), times: [0, 0.18, 0.72, 1], ease: "ease-in-out" },
+      { duration: duration(2), times: [0, 0.18, 0.72, 1], ease: "easeInOut" },
     ).finished;
   }
 
@@ -187,7 +187,7 @@ export class Effects {
     await animate(
       document.documentElement,
       { filter: ["invert(0) hue-rotate(0deg)", "invert(1) hue-rotate(180deg)", "invert(1) hue-rotate(180deg)", "invert(0) hue-rotate(0deg)"] },
-      { duration: duration(2.35), times: [0, 0.18, 0.76, 1], ease: "ease-in-out" },
+      { duration: duration(2.35), times: [0, 0.18, 0.76, 1], ease: "easeInOut" },
     ).finished;
   }
 
